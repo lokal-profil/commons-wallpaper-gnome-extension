@@ -251,7 +251,7 @@ Modified by: Jon Harald Søby
                   </object>
                 </child>
                 <child>
-                  <object class="GtkBox" id="image-list-page_container">
+                  <object class="GtkBox" id="image_list_page_container">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="margin_left">10</property>
@@ -259,7 +259,7 @@ Modified by: Jon Harald Søby
                     <property name="margin_top">10</property>
                     <property name="margin_bottom">10</property>
                     <child>
-                      <object class="GtkLabel" id="image-list-page_label">
+                      <object class="GtkLabel" id="image_list_page_label">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">Image list:</property>
@@ -273,7 +273,7 @@ Modified by: Jon Harald Søby
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="image-list-page_description">
+                      <object class="GtkLabel" id="image_list_page_description">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="halign">start</property>
@@ -288,7 +288,7 @@ Modified by: Jon Harald Søby
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkEntry" id="image-list-page">
+                      <object class="GtkEntry" id="image_list_page">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="valign">baseline</property>
