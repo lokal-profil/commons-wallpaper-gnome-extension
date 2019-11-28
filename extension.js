@@ -20,7 +20,7 @@ const Convenience = Me.imports.convenience;
 const Gettext = imports.gettext.domain('CommonsWallpaper');
 const _ = Gettext.gettext;
 
-const DefaultImageListPage = "User:Jon_Harald_Söby/wallpapers.json";
+const DefaultImageListPage = "User:Jon_Harald_Søby/wallpapers.json";
 const CommonsImageURLbase = "https://commons.wikimedia.org/w/api.php?format=json&action=query&prop=imageinfo&iiprop=url|extmetadata&iiextmetadatafilter=ImageDescription|Artist|LicenseUrl|LicenseShortName&titles="
 const CommonsURL = "https://commons.wikimedia.org";
 const IndicatorName = "CommonsWallpaperIndicator";
