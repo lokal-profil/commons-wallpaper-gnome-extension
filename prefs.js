@@ -67,7 +67,7 @@ function buildPrefsWidget(){
     });
 
     // image list page
-    settings.bind('image-list', imageList, 'text', Gio.SettingsBindFlags.DEFAULT);
+    settings.bind('image-list-page', imageList, 'text', Gio.SettingsBindFlags.DEFAULT);
 
     resolutions.forEach(function (res) { // add res to dropdown list (aka a GtkComboText)
         resolutionEntry.append(res, res);

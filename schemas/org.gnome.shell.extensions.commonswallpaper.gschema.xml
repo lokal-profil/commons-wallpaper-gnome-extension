@@ -39,7 +39,7 @@
       <description></description>
     </key>
 
-    <key name="image-list" type="s">
+    <key name="image-list-page" type="s">
       <default>"User:Jon_Harald_Søby/wallpapers.json"</default>
       <summary>Page on Wikimedia Commons listing images.</summary>
       <description></description>

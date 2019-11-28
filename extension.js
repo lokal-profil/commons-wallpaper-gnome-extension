@@ -214,13 +214,13 @@ const CommonsWallpaperIndicator = new Lang.Class({
 
         let ImageListPage = this._settings.get_string('image-list-page');
         if (ImageListPage == '') {
-            ImageListURL = DefaultImageListPage;
+            ImageListPage = DefaultImageListPage;
         }
         ImageListPage = ImageListPage.replace(' ', '_');
         this._settings.set_string('image-list-page', ImageListPage);
         let ImageListURL = 'https://commons.wikimedia.org/w/index.php?title=' +
             encodeURI(ImageListPage) + '&action=raw&ctype=application/json';
-        log("Image list page detected as https://commons.wikimedia.org/wiki/" + ImageListURL);
+        log("Image list page detected as https://commons.wikimedia.org/wiki/" + ImageListPage);
 
         let APIrequest = Soup.Message.new('GET', ImageListURL);
         httpSession.queue_message(APIrequest, Lang.bind(this, function(httpSession, message) {
