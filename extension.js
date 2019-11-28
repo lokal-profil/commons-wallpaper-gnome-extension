@@ -20,7 +20,7 @@ const Convenience = Me.imports.convenience;
 const Gettext = imports.gettext.domain('CommonsWallpaper');
 const _ = Gettext.gettext;
 
-const ImageListURL = "https://commons.wikimedia.org/w/index.php?title=User:Jon_Harald_S%C3%B8by/wallpapers.json&action=raw&ctype=application/json";
+const DefaultImageListPage = "User:Jon_Harald_Söby/wallpapers.json";
 const CommonsImageURLbase = "https://commons.wikimedia.org/w/api.php?format=json&action=query&prop=imageinfo&iiprop=url|extmetadata&iiextmetadatafilter=ImageDescription|Artist|LicenseUrl|LicenseShortName&titles="
 const CommonsURL = "https://commons.wikimedia.org";
 const IndicatorName = "CommonsWallpaperIndicator";
@@ -212,6 +212,16 @@ const CommonsWallpaperIndicator = new Lang.Class({
 
         this._restartTimeout();
 
+        let ImageListPage = this._settings.get_string('image-list-page');
+        if (ImageListPage == '') {
+            ImageListURL = DefaultImageListPage;
+        }
+        ImageListPage = ImageListPage.replace(' ', '_');
+        this._settings.set_string('image-list-page', ImageListPage);
+        let ImageListURL = 'https://commons.wikimedia.org/w/index.php?title=' +
+            encodeURI(ImageListPage) + '&action=raw&ctype=application/json';
+        log("Image list page detected as https://commons.wikimedia.org/wiki/" + ImageListURL);
+
         let APIrequest = Soup.Message.new('GET', ImageListURL);
         httpSession.queue_message(APIrequest, Lang.bind(this, function(httpSession, message) {
             if (message.status_code == 200) {
@@ -221,7 +231,7 @@ const CommonsWallpaperIndicator = new Lang.Class({
 		if (heightmatters) {
                     size = '&iiurlheight=' + this.resH;
                 }
-		let request = Soup.Message.new('GET', CommonsImageURLbase + encodeURI(chosen1) + size); 
+		let request = Soup.Message.new('GET', CommonsImageURLbase + encodeURI(chosen1) + size);
                 httpSession.queue_message(request, Lang.bind(this, function(httpSession, message2) {
                     if (message2.status_code == 200) {
                         let data2 = message2.response_body.data;
@@ -308,7 +318,7 @@ const CommonsWallpaperIndicator = new Lang.Class({
                 let changed = this._setBackground();
                 this._updatePending = false;
             }
-            
+
         } else {
             this.title = _("No wallpaper available");
             this.filename = "";
