@@ -318,7 +318,6 @@ const CommonsWallpaperIndicator = new Lang.Class({
                 let changed = this._setBackground();
                 this._updatePending = false;
             }
-
         } else {
             this.title = _("No wallpaper available");
             this.filename = "";
